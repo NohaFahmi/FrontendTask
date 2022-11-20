@@ -7,6 +7,7 @@ const routes: Routes = [
   },
   {
     path: 'home',
+    pathMatch: 'full',
     loadChildren: () => import('@modules/landing-home/landing-home.module').then(m => m.LandingHomeModule)
   },
   {

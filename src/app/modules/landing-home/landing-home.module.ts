@@ -1,7 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import {LandingHomeComponent} from "@modules/landing-home/landing-home.component";
 
+import { LandingHomeRoutingModule } from './landing-home-routing.module';
+import { LandingHomeComponent } from './landing-home.component';
 
 
 @NgModule({
@@ -10,6 +11,7 @@ import {LandingHomeComponent} from "@modules/landing-home/landing-home.component
   ],
   imports: [
     CommonModule,
+    LandingHomeRoutingModule
   ]
 })
 export class LandingHomeModule { }
