@@ -1,1 +1,40 @@
-<p>login works!</p>
+<div class="login-page__container">
+  <div class="login-page__container_img-wrapper">
+    <img src="assets/images/login-bg.svg" alt="login">
+  </div>
+  <div class="login-page__container_content-wrapper">
+    <div class="logo-wrapper">
+      <img src="assets/images/logo.png" alt="logo"/>
+    </div>
+    <div class="login-page__container_login-form">
+     <form nz-form [nzLayout]="'vertical'">
+       <nz-form-item>
+         <nz-form-label>Email</nz-form-label>
+         <nz-form-control nzErrorTip="Please input your username!">
+           <nz-input-group>
+             <input type="text" nz-input placeholder="Username" />
+           </nz-input-group>
+         </nz-form-control>
+       </nz-form-item>
+       <nz-form-item>
+         <nz-form-label>Password</nz-form-label>
+         <nz-form-control nzErrorTip="Please input your Password!">
+           <nz-input-group [nzSuffix]="suffixTemplate">
+             <input nz-input placeholder="Password" [type]="passwordVisible ? 'text' : 'password'"/>
+           </nz-input-group>
+           <ng-template #suffixTemplate>
+            <span
+              nz-icon
+              [nzType]="passwordVisible ? 'eye-invisible' : 'eye'"
+              (click)="passwordVisible = !passwordVisible"></span>
+           </ng-template>
+         </nz-form-control>
+       </nz-form-item>
+       <nz-form-item>
+         <a class="login-form-forgot">Forgot your <span>password?</span></a>
+       </nz-form-item>
+         <button nz-button class="login-form-button" [nzType]="'primary'">Log in</button>
+     </form>
+    </div>
+  </div>
+</div>
