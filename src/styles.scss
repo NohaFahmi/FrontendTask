@@ -1,1 +1,20 @@
+// Settings
+@import "./assets/styles/settings/variables";
+@import "./assets/styles/settings/fonts";
+
+// ng-zorro
 @import "~ng-zorro-antd/ng-zorro-antd.min.css";/* You can add global styles to this file, and also import other style files */
+
+html {
+  box-sizing: border-box;
+  overflow-x: hidden;
+}
+html, body {
+  min-height: 100vh;
+}
+body {
+  margin: 0;
+  position: relative;
+  font-family: var(--font-family) !important;
+  font-size: 16px;
+}
