@@ -1,0 +1,30 @@
+.list-filters__container {
+  .ant-collapse {
+    background-color: var(--grey);
+    color: var(--grey-100) !important;
+    font-weight: 500;
+    font-size: 16px;
+    .ant-collapse-content-box {
+      p {
+        color: var(--grey-100) !important;
+      }
+    }
+  }
+
+  &_filters {
+    .ant-checkbox-wrapper {
+      .ant-checkbox-input {
+        &:checked {
+          + .ant-checkbox-inner {
+            border-color: var(--orange-600);
+            background-color: var(--orange-600);
+          }
+        }
+        &::selection {
+          background-color: red;
+          color: var(--white);
+        }
+      }
+    }
+  }
+}
