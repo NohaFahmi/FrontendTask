@@ -1,11 +1,13 @@
-<div class="product-card">
+<div class="product-card" *ngIf="product">
   <img src="assets/images/product-img.png" alt="product" class="product-card_img">
-  <h2 class="product-card_title">Envelope, Stripes, Pencil and etc. Purchase this kit today and feel OKAY</h2>
-  <p class="product-card_price">$128.99</p>
-  <p class="product-card-desc">Showcasing onHovered state</p>
+  <h2 class="product-card_title">{{product.title}}</h2>
+  <p class="product-card_price">{{product.price}}</p>
+  <p class="product-card-desc">{{product.description}}</p>
   <div class="product-card_actions">
-    <div class="product-card_rating"></div>
-    <button nz-button nzType="default" class="btn btn-outline">
+    <div class="product-card_rating">
+      <nz-rate  nzDisabled [(ngModel)]="product.rating"></nz-rate>
+    </div>
+    <button nz-button nzType="default" class="btn btn-outline favorite-btn">
       <span nz-icon nzType="heart"></span>
       watch
     </button>

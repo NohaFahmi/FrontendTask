@@ -3,6 +3,8 @@ import { CommonModule } from '@angular/common';
 import { ProductCardComponent } from './components/product-card/product-card.component';
 import {NzButtonModule} from "ng-zorro-antd/button";
 import {NzIconModule} from "ng-zorro-antd/icon";
+import {NzRateModule} from "ng-zorro-antd/rate";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 
 
 
@@ -16,7 +18,10 @@ import {NzIconModule} from "ng-zorro-antd/icon";
   imports: [
     CommonModule,
     NzButtonModule,
-    NzIconModule
+    NzIconModule,
+    NzRateModule,
+    ReactiveFormsModule,
+    FormsModule
   ]
 })
 export class SharedModule { }
