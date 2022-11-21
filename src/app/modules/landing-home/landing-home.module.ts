@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { LandingHomeRoutingModule } from './landing-home-routing.module';
 import { LandingHomeComponent } from './landing-home.component';
 import {SharedModule} from "@shared/shared.module";
+import {NzGridModule} from "ng-zorro-antd/grid";
 
 
 @NgModule({
@@ -13,7 +14,8 @@ import {SharedModule} from "@shared/shared.module";
     imports: [
         CommonModule,
         LandingHomeRoutingModule,
-        SharedModule
+        SharedModule,
+        NzGridModule
     ]
 })
 export class LandingHomeModule { }

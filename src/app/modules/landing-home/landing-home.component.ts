@@ -16,7 +16,6 @@ export class LandingHomeComponent implements OnInit {
     images: ['https://picsum.photos/200/300'],
     category: 'Category 1',
   };
-
   constructor() { }
 
   ngOnInit(): void {
