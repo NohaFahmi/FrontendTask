@@ -20,9 +20,6 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.authService.logoutUser().then((data) => {
-      console.log("DATA", data);
-    }).catch((error) => {})
   }
 
   onLogin(event: MouseEvent) {
