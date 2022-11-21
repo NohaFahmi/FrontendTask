@@ -11,6 +11,9 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {NzLayoutModule} from "ng-zorro-antd/layout";
+import {AngularFireModule} from "@angular/fire/compat";
+import {AngularFireAuthModule} from "@angular/fire/compat/auth";
+import {environment} from "../environments/environment";
 
 registerLocaleData(en);
 
@@ -24,7 +27,9 @@ registerLocaleData(en);
         FormsModule,
         HttpClientModule,
         BrowserAnimationsModule,
-        NzLayoutModule
+        NzLayoutModule,
+        AngularFireModule.initializeApp(environment.firebase),
+        AngularFireAuthModule,
     ],
   providers: [
     { provide: NZ_I18N, useValue: en_US }
