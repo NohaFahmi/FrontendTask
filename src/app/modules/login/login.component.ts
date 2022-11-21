@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
+import {AuthService} from "@services/integrations/auth/auth.service";
 
 @Component({
   selector: 'app-login',
@@ -7,10 +9,28 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginComponent implements OnInit {
   passwordVisible: boolean= false;
+  loginForm: FormGroup;
+  private emailPattern = '^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}$';
 
-  constructor() { }
-
-  ngOnInit(): void {
+  constructor(private fb: FormBuilder, private authService: AuthService) {
+    this.loginForm =  this.fb.group({
+      email: new FormControl('', Validators.compose([Validators.required, Validators.pattern(this.emailPattern)])),
+      password: new FormControl('', Validators.compose([Validators.required, Validators.minLength(6)])),
+    })
   }
 
+  ngOnInit(): void {
+    this.authService.logoutUser().then((data) => {
+      console.log("DATA", data);
+    }).catch((error) => {})
+  }
+
+  onLogin(event: MouseEvent) {
+    event.preventDefault();
+    this.authService.loginWithEmail(this.loginForm.controls['email'].value, this.loginForm.controls['password'].value).then((data) => {
+      console.log(data);
+    }).catch((error) => {
+      console.log("ERROR",error)
+    })
+  }
 }

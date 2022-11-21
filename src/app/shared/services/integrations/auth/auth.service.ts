@@ -2,16 +2,28 @@ import { Injectable } from '@angular/core';
 import * as auth from 'firebase/auth';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import {Router} from "@angular/router";
+import {Subscription} from "rxjs";
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
-
-  constructor(private authFirebase: AngularFireAuth, private router: Router) { }
-
-  emailSignup(userEmail: string, userPassword: string) {
-    this.authFirebase.createUserWithEmailAndPassword(userEmail, userPassword)
+  // private subscription: Subscription[] = [];
+  constructor(private authFirebase: AngularFireAuth, private router: Router) {
+    this.authFirebase.authState.subscribe((user) => {
+      if (user) {
+        this.router.navigate(['/']);
+      } else {
+        this.router.navigate(['login']);
+      }
+    });
+    // this.subscription.push(authSub);
+  }
+  // ngOnDestroy(): void {
+  //   this.subscription.map((sub) => sub.unsubscribe());
+  // }
+  emailSignup(userEmail: string, userPassword: string): Promise<any> {
+    return this.authFirebase.createUserWithEmailAndPassword(userEmail, userPassword)
       .then(userCredentials => {
         console.log('Success!', userCredentials);
       })
@@ -20,13 +32,16 @@ export class AuthService {
       });
   }
 
-  loginWithEmail(userEmail: string, userPassword: string) {
-    this.authFirebase.signInWithEmailAndPassword(userEmail, userPassword)
+  loginWithEmail(userEmail: string, userPassword: string): Promise<any> {
+    return this.authFirebase.signInWithEmailAndPassword(userEmail, userPassword)
       .then(userCredentials => {
         console.log('Nice, it worked!', userCredentials);
       })
       .catch(err => {
         console.log('Something went wrong:',err.message);
       });
+  }
+  logoutUser(): Promise<any> {
+    return this.authFirebase.signOut();
   }
 }

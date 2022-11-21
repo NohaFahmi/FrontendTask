@@ -7,12 +7,12 @@
       <img src="assets/images/logo.png" alt="logo"/>
     </div>
     <div class="login-page__container_login-form">
-     <form nz-form [nzLayout]="'vertical'">
+     <form nz-form [nzLayout]="'vertical'" [formGroup]="loginForm">
        <nz-form-item class="login-form-email-item">
          <nz-form-label>Email</nz-form-label>
-         <nz-form-control nzErrorTip="Please input your username!">
+         <nz-form-control nzErrorTip="Please input your email!">
            <nz-input-group>
-             <input type="text" nz-input placeholder="Username" />
+             <input type="text" nz-input placeholder="Email" formControlName="email"/>
            </nz-input-group>
          </nz-form-control>
        </nz-form-item>
@@ -20,7 +20,7 @@
          <nz-form-label>Password</nz-form-label>
          <nz-form-control nzErrorTip="Please input your Password!">
            <nz-input-group [nzSuffix]="suffixTemplate">
-             <input nz-input placeholder="Password" [type]="passwordVisible ? 'text' : 'password'"/>
+             <input nz-input placeholder="Password" [type]="passwordVisible ? 'text' : 'password'" formControlName="password"/>
            </nz-input-group>
            <ng-template #suffixTemplate>
             <span
@@ -33,7 +33,7 @@
        <nz-form-item>
          <a class="login-form-forgot">Forgot your <span>password?</span></a>
        </nz-form-item>
-         <button nz-button class="login-form-button" [nzType]="'primary'">Log in</button>
+         <button nz-button class="login-form-button" [nzType]="'primary'" [disabled]="loginForm.invalid" (click)="onLogin($event)">Log in</button>
      </form>
     </div>
   </div>

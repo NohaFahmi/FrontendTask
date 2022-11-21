@@ -50,3 +50,11 @@
   color: rgba(108, 99, 255, 0.69) !important;
   font-weight: 700;
 }
+.ant-form-item-explain-error {
+  text-align: left;
+  padding-left: 25px;
+  margin-top: 5px;
+}
+.ant-input-affix-wrapper-status-error:not(.ant-input-affix-wrapper-disabled):not(.ant-input-affix-wrapper-borderless).ant-input-affix-wrapper {
+  border-color: #FF4D4F !important;
+}
