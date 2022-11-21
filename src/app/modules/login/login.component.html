@@ -1,6 +1,6 @@
 <div class="login-page__container">
   <div class="login-page__container_img-wrapper">
-    <img src="assets/images/login-bg.svg" alt="login">
+<!--    <img src="assets/images/login-bg.svg" alt="login">-->
   </div>
   <div class="login-page__container_content-wrapper">
     <div class="logo-wrapper">
@@ -8,7 +8,7 @@
     </div>
     <div class="login-page__container_login-form">
      <form nz-form [nzLayout]="'vertical'">
-       <nz-form-item>
+       <nz-form-item class="login-form-email-item">
          <nz-form-label>Email</nz-form-label>
          <nz-form-control nzErrorTip="Please input your username!">
            <nz-input-group>
@@ -16,7 +16,7 @@
            </nz-input-group>
          </nz-form-control>
        </nz-form-item>
-       <nz-form-item>
+       <nz-form-item class="login-form-password-item">
          <nz-form-label>Password</nz-form-label>
          <nz-form-control nzErrorTip="Please input your Password!">
            <nz-input-group [nzSuffix]="suffixTemplate">

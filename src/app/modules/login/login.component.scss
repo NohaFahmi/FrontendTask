@@ -4,37 +4,57 @@
   height: 100%;
   min-height: 100%;
   width: 100%;
-  border: 1px solid red;
   background-color: #F5F5F5;
 
   &_img-wrapper {
     flex: 1;
-    border: 1px solid blue;
-    background-color: #6C63FF;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    img {
-      max-height: 400px;
-      max-width: 400px;
-      margin: 0 auto;
-    }
+    background-image: url("~src/assets/images/login-bg.svg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: initial;
+    transition: 1s;
+    //img {
+    //  max-height: 400px;
+    //  max-width: 400px;
+    //  margin: 0 auto;
+    //}
   }
   &_content-wrapper {
     flex: 1;
-    border: 1px solid green;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    transition: 0.4s all;
+    //width: 90%;
+    //animation-name: left;
+    //animation-duration: 1s;
+    //animation-fill-mode: both;
+    //animation-delay: 1s;
+    @media(max-width: 768px) {
+      flex: unset;
+      width: 100%;
+    }
     .logo-wrapper {
       margin-bottom: 80px;
     }
   }
   &_login-form {
     width: 100%;
-    max-width: 400px;
+    max-width: 80%;
     text-align: center;
+    @media(max-width: 768px) {
+      max-width: 90%;
+    }
+    .ant-form-item {
+      margin-bottom: 0;
+    }
+    .login-form-email-item {
+      margin-bottom: 40px;
+    }
+    .login-form-password-item {
+      margin-bottom: 5px;
+    }
     .ant-input {
       text-align: left;
     }
@@ -59,10 +79,20 @@
       color: #fff;
       font-size: 20px;
       font-weight: 700;
-      margin: 0 auto;
+      margin: 50px auto 0;
       &:hover {
         background-color: #6C63FF;
       }
     }
+  }
+}
+@keyframes left {
+  0% {
+    opacity: 0;
+    width: 0;
+  }
+  100% {
+    opacity: 1;
+    width: 100%;
   }
 }
