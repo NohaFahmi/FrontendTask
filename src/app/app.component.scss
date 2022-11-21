@@ -3,9 +3,21 @@
   flex-direction: column;
   height: 100%;
   width: 100%;
+  .app-header-container {
+    background-color: var(--wild-sand);
+    height: 80px;
+    padding: 10px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 999;
+    box-shadow: 0 0 15px -4px grey;
+  }
   }
 .page-wrapper {
   height: 100%;
+  width: 100%;
   min-height: 80vh;
   background-color: #F5F5F5;
   .ant-layout-content {

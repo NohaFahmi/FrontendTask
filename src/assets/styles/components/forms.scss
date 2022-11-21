@@ -58,3 +58,19 @@
 .ant-input-affix-wrapper-status-error:not(.ant-input-affix-wrapper-disabled):not(.ant-input-affix-wrapper-borderless).ant-input-affix-wrapper {
   border-color: #FF4D4F !important;
 }
+.search-input {
+  background-color: #ededf0 !important;
+  border-radius: 99px;
+  color: #19191D;
+  width: 100%;
+  height: 48px;
+  padding: 0 15px !important;
+  .anticon svg {
+    fill: rgba(108, 99, 255, 0.69);
+  }
+  .ant-input-prefix {
+    svg {
+      fill: #787885;
+    }
+  }
+}

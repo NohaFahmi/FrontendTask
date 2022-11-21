@@ -1,0 +1,30 @@
+<div class="header-container">
+  <div class="header-container__header-links">
+    <div class="header-container__header-links_logo-wrapper">
+      <img src="assets/images/Logo.svg" alt="header-logo"/>
+    </div>
+    <a class="header-container__header-links_link-item">Sell on Shopka</a>
+    <a class="header-container__header-links_link-item">Register</a>
+  </div>
+  <div class="header-container__header-search_wrapper">
+   <div class="header-search-field">
+     <nz-input-group nzPrefixIcon="search" [nzSuffix]="searchClearTip" class="search-input">
+       <input type="text" nz-input placeholder="input search text" />
+     </nz-input-group>
+     <ng-template #searchClearTip>
+       <span nz-icon nzType="close" nzTheme="outline"></span>
+     </ng-template>
+   </div>
+    <a class="header-container__header-link">Electronics</a>
+  </div>
+  <div class="header-container__header-user-cta">
+    <a class="header-container__header-user-cta_login-btn" nz-button nzType="default">Login</a>
+    <span class="header-container__header-user-cta_user-cart">
+      <span class="cart-count">5</span>
+    <button nz-button nzType="default" class="cart-btn">My Cart</button>
+    </span>
+    <div class="header-container__header-user-cta_user-avatar">
+      <img src="assets/images/user-avatar.jpg" alt="user-avatar"/>
+    </div>
+  </div>
+</div>

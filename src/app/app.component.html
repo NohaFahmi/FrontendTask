@@ -1,11 +1,8 @@
-<div class="app-container">
-  <nz-layout>
-<!--    <nz-header>Header</nz-header>-->
-    <div class="page-wrapper">
-      <nz-content>
-        <router-outlet></router-outlet>
-      </nz-content>
+<div class="app-container ant-layout">
+    <div class="app-header-container">
+      <app-header></app-header>
     </div>
-<!--    <nz-footer>Footer</nz-footer>-->
-  </nz-layout>
+    <div class="page-wrapper ant-layout-content">
+        <router-outlet></router-outlet>
+    </div>
 </div>

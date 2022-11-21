@@ -14,6 +14,7 @@ import {NzLayoutModule} from "ng-zorro-antd/layout";
 import {AngularFireModule} from "@angular/fire/compat";
 import {AngularFireAuthModule} from "@angular/fire/compat/auth";
 import {environment} from "../environments/environment";
+import {CoreModule} from "@core/core.module";
 
 registerLocaleData(en);
 
@@ -21,16 +22,17 @@ registerLocaleData(en);
   declarations: [
     AppComponent
   ],
-    imports: [
-        BrowserModule,
-        AppRoutingModule,
-        FormsModule,
-        HttpClientModule,
-        BrowserAnimationsModule,
-        NzLayoutModule,
-        AngularFireModule.initializeApp(environment.firebase),
-        AngularFireAuthModule,
-    ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    FormsModule,
+    HttpClientModule,
+    BrowserAnimationsModule,
+    NzLayoutModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireAuthModule,
+    CoreModule,
+  ],
   providers: [
     { provide: NZ_I18N, useValue: en_US }
   ],
