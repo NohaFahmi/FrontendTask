@@ -1,0 +1,15 @@
+.btn {
+  &.ant-btn {
+    border-radius: 4px !important;
+    font-weight: 700 !important;
+    font-size: 20px !important;
+    display: flex;
+    height: 40px !important;
+    justify-content: center;
+    align-items: center;
+  }
+  &-outline {
+    border: 1px solid var(--blue-300) !important;
+    color: var(--blue-700) !important;
+  }
+}

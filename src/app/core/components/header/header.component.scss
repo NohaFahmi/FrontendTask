@@ -82,17 +82,7 @@
       gap: 20px;
     }
     &_login-btn {
-      border: 1px solid var(--blue-300);
-      border-radius: 4px;
-      color: var(--blue-700);
-      font-weight: 700;
-      font-size: 20px;
-      display: flex;
       width: 100px;
-      height: 40px;
-      justify-content: center;
-      align-items: center;
-      padding: 0;
       @media(max-width: 991px) {
         display: none;
       }
@@ -101,17 +91,9 @@
       position: relative;
       .cart-btn {
         box-shadow: 0px 2px 4px rgba(27, 78, 163, 0.2), 0px 4px 8px rgba(41, 121, 255, 0.2);
-        border-radius: 4px;
-        font-weight: 700;
-        font-size: 20px;
-        display: flex;
         width: 100px;
         height: 40px;
-        justify-content: center;
-        align-items: center;
-        padding: 0;
-        color: var(--blue-700);
-        border: none;
+        border: none !important;
       }
       .cart-count {
         position: absolute;
