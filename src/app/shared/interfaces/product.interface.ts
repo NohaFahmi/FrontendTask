@@ -6,4 +6,11 @@ export interface IProduct {
   rating: number;
   category: string;
   images: string[];
+  thumbnail: string;
+}
+export interface IProductsResponse {
+  products: IProduct[];
+  total: number;
+  limit: number;
+  skip: number;
 }

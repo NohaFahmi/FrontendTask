@@ -8,15 +8,7 @@ import {IProduct} from "@interfaces/product.interface";
   encapsulation: ViewEncapsulation.None
 })
 export class LandingHomeComponent implements OnInit {
-  product: IProduct = {
-    id: 1,
-    title: 'Product 1',
-    description: 'Product 1 description',
-    price: 100,
-    rating: 4.78,
-    images: ['https://picsum.photos/200/300'],
-    category: 'Category 1',
-  };
+  products?: IProduct[];
   constructor() { }
 
   ngOnInit(): void {

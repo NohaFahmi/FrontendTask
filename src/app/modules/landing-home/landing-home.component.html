@@ -11,11 +11,9 @@
           <app-list-sort></app-list-sort>
         </div>
         <div class="landing-home_container__products-list-wrapper">
-          <app-product-card [product]="product"></app-product-card>
-          <app-product-card [product]="product"></app-product-card>
-          <app-product-card [product]="product"></app-product-card>
-          <app-product-card [product]="product"></app-product-card>
-          <app-product-card [product]="product"></app-product-card>
+          <div *ngFor="let product of products;">
+            <app-product-card [product]="product"></app-product-card>
+          </div>
         </div>
       </div>
     </div>
