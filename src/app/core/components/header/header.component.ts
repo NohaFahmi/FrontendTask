@@ -1,4 +1,5 @@
 import {Component, OnInit, ViewEncapsulation} from '@angular/core';
+import {AuthService} from "@services/integrations/auth/auth.service";
 
 @Component({
   selector: 'app-header',
@@ -8,9 +9,14 @@ import {Component, OnInit, ViewEncapsulation} from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor() { }
+  constructor(private authService:AuthService) { }
 
   ngOnInit(): void {
   }
 
+  onLogout() {
+    this.authService.logoutUser().then((res) => {
+      console.log(res);
+    } ).catch((err) => { })
+  }
 }

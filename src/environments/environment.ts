@@ -8,5 +8,6 @@ export const environment = {
     messagingSenderId: "675204680302",
     appId: "1:675204680302:web:63876cf88caefbb345747f",
     measurementId: "G-EYWLE0DVE7"
-  }
+  },
+  serviceURL: 'https://dummyjson.com'
 };
