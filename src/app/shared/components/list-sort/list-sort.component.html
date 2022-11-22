@@ -1,0 +1,9 @@
+<div class="list-sort_container">
+  <p class="list-sort_container_label">SORT BY</p>
+  <nz-select [formControl]="sortOptions" (ngModelChange)="onSelectOptions($event)"
+             class="list-sort_container_sort-options">
+    <nz-option nzValue="jack" nzLabel="Jack"></nz-option>
+    <nz-option nzValue="lucy" nzLabel="Lucy"></nz-option>
+    <nz-option nzValue="disabled"></nz-option>
+  </nz-select>
+</div>

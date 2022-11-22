@@ -7,28 +7,17 @@
     </div>
     <div nz-col nzSpan="14" nzOffset="1">
       <div class="landing-home_container__products-list">
-        <app-product-card [product]="product"></app-product-card>
-        <app-product-card [product]="product"></app-product-card>
-        <app-product-card [product]="product"></app-product-card>
-        <app-product-card [product]="product"></app-product-card>
-        <app-product-card [product]="product"></app-product-card>
-        <app-product-card [product]="product"></app-product-card>
-        <app-product-card [product]="product"></app-product-card>
-        <app-product-card [product]="product"></app-product-card>
-        <app-product-card [product]="product"></app-product-card>
-        <app-product-card [product]="product"></app-product-card>
-        <app-product-card [product]="product"></app-product-card>
-        <app-product-card [product]="product"></app-product-card>
-        <app-product-card [product]="product"></app-product-card>
-        <app-product-card [product]="product"></app-product-card>
-        <app-product-card [product]="product"></app-product-card>
-        <app-product-card [product]="product"></app-product-card>
-        <app-product-card [product]="product"></app-product-card>
-        <app-product-card [product]="product"></app-product-card>
-        <app-product-card [product]="product"></app-product-card>
-        <app-product-card [product]="product"></app-product-card>
+        <div class="landing-home_container__products-list-sort">
+          <app-list-sort></app-list-sort>
+        </div>
+        <div class="landing-home_container__products-list-wrapper">
+          <app-product-card [product]="product"></app-product-card>
+          <app-product-card [product]="product"></app-product-card>
+          <app-product-card [product]="product"></app-product-card>
+          <app-product-card [product]="product"></app-product-card>
+          <app-product-card [product]="product"></app-product-card>
+        </div>
       </div>
-
     </div>
   </div>
 

@@ -8,18 +8,22 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { ListFiltersComponent } from './components/list-filters/list-filters.component';
 import {NzCollapseModule} from "ng-zorro-antd/collapse";
 import {NzCheckboxModule} from "ng-zorro-antd/checkbox";
+import { ListSortComponent } from './components/list-sort/list-sort.component';
+import {NzSelectModule} from "ng-zorro-antd/select";
 
 
 
 @NgModule({
     declarations: [
         ProductCardComponent,
-        ListFiltersComponent
+        ListFiltersComponent,
+        ListSortComponent
     ],
-  exports: [
-    ProductCardComponent,
-    ListFiltersComponent
-  ],
+    exports: [
+        ProductCardComponent,
+        ListFiltersComponent,
+        ListSortComponent
+    ],
   imports: [
     CommonModule,
     NzButtonModule,
@@ -28,7 +32,8 @@ import {NzCheckboxModule} from "ng-zorro-antd/checkbox";
     ReactiveFormsModule,
     FormsModule,
     NzCollapseModule,
-    NzCheckboxModule
+    NzCheckboxModule,
+    NzSelectModule
   ]
 })
 export class SharedModule { }
