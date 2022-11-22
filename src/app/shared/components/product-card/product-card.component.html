@@ -1,8 +1,8 @@
 <div class="product-card" *ngIf="product">
-  <img src="assets/images/product-img.png" alt="product" class="product-card_img">
+  <img [src]="product.thumbnail" alt="product" class="product-card_img">
   <h2 class="product-card_title">{{product.title}}</h2>
   <p class="product-card_price">{{product.price}}</p>
-  <p class="product-card-desc">{{product.description}}</p>
+  <p class="product-card_desc">{{product.description}}</p>
   <div class="product-card_actions">
     <div class="product-card_rating">
       <nz-rate  nzDisabled [(ngModel)]="product.rating"></nz-rate>
