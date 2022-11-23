@@ -1,7 +1,9 @@
-import {Component, OnInit, ViewEncapsulation} from '@angular/core';
+import {Component, OnDestroy, OnInit, ViewEncapsulation} from '@angular/core';
 import {AuthService} from "@services/integrations/auth/auth.service";
 import {FormControl} from "@angular/forms";
 import {Router} from "@angular/router";
+import {ProductsService} from "@services/integrations/products/products.service";
+import {Subscription} from "rxjs";
 
 @Component({
   selector: 'app-header',
@@ -9,14 +11,20 @@ import {Router} from "@angular/router";
   styleUrls: ['./header.component.scss'],
   encapsulation: ViewEncapsulation.None
 })
-export class HeaderComponent implements OnInit {
+export class HeaderComponent implements OnInit, OnDestroy {
   searchKeyword: FormControl;
+  cartItemsCount: number = 0;
+  subscriptions: Subscription[] = [];
 
-  constructor(private authService:AuthService, private router:Router) {
+  constructor(private authService:AuthService, private router:Router, private productService:ProductsService) {
     this.searchKeyword = new FormControl('');
   }
 
   ngOnInit(): void {
+    let cartCountSub = this.productService.cartItemsCount.subscribe((count) => {
+      this.cartItemsCount = count;
+    });
+    this.subscriptions.push(cartCountSub);
   }
 
   onLogout() {
@@ -36,5 +44,11 @@ export class HeaderComponent implements OnInit {
 
   resetSearchKeyWord() {
     this.searchKeyword.reset();
+  }
+
+  ngOnDestroy(): void {
+    this.subscriptions.map((sub) => {
+      sub.unsubscribe();
+    });
   }
 }

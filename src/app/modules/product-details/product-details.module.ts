@@ -3,6 +3,10 @@ import { CommonModule } from '@angular/common';
 
 import { ProductDetailsRoutingModule } from './product-details-routing.module';
 import { ProductDetailsComponent } from './product-details.component';
+import {NzRateModule} from "ng-zorro-antd/rate";
+import {FormsModule} from "@angular/forms";
+import {NzIconModule} from "ng-zorro-antd/icon";
+import {NzButtonModule} from "ng-zorro-antd/button";
 
 
 @NgModule({
@@ -11,7 +15,11 @@ import { ProductDetailsComponent } from './product-details.component';
   ],
   imports: [
     CommonModule,
-    ProductDetailsRoutingModule
+    ProductDetailsRoutingModule,
+    NzRateModule,
+    FormsModule,
+    NzIconModule,
+    NzButtonModule
   ]
 })
 export class ProductDetailsModule { }

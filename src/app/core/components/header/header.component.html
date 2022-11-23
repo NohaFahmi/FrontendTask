@@ -21,7 +21,7 @@
   <div class="header-container__header-user-cta">
     <a class="header-container__header-user-cta_login-btn btn-outline btn" nz-button nzType="default">Login</a>
     <span class="header-container__header-user-cta_user-cart">
-      <span class="cart-count">5</span>
+      <span class="cart-count">{{cartItemsCount}}</span>
     <button nz-button nzType="default" class="cart-btn btn btn-outline">My Cart</button>
     </span>
     <div class="header-container__header-user-cta_user-avatar" (click)="onLogout()">

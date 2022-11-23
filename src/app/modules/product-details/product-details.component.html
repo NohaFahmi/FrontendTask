@@ -1,1 +1,60 @@
-<p>product-details works!</p>
+<div class="product-details-page_container" *ngIf="productDetails">
+  <div class="product-details-page_container_img-side">
+      <img [src]="productDetails.images[0]" [alt]="productDetails.title">
+  </div>
+  <div class="product-details-page_container_details-side">
+    <span class="hot-sale-label">HOT SALE</span>
+    <h1>{{productDetails.title}}</h1>
+    <div class="product-details-page_container_details-side_rating">
+      <span class="product-category">{{productDetails.category}}</span> |
+      <div class="product-details-rating">
+        <nz-rate nzDisabled [(ngModel)]="productDetails.rating"></nz-rate>
+        <span class="rating-text">{{productDetails.rating}}</span>
+      </div>
+    </div>
+    <div class="product-details-page_container_details-side_desc">
+      <h6>Description</h6>
+      <p>{{productDetails.description}}</p>
+    </div>
+    <div class="product-details-page_container_details-side_images">
+      <div class="product-img" *ngFor="let img of productDetails.images; let index = index;">
+        <img [src]="img" [alt]="productDetails.title">
+      </div>
+    </div>
+    <div class="product-details-page_container_details-side_sizes">
+      <h6>Size</h6>
+        <div class="product-details-page_container_details-side_sizes_size">
+          <span class="product-details-page_container_details-side_sizes_size-item"
+                *ngFor="let size of sizes; let index = index;">{{size}}</span>
+        </div>
+    </div>
+    <div class="product-details-page_container_details-side_ingred">
+      <h6>Ingredients</h6>
+      <ul class="ingredients-list">
+        <li *ngFor="let ingredient of ingredients">{{ingredient}}</li>
+      </ul>
+    </div>
+</div>
+  <div class="product-details-page_container_floating-footer">
+   <div class="floating-footer_info">
+     <div class="product-img">
+       <img [src]="productDetails.images[0]" [alt]="productDetails.title">
+     </div>
+     <div class="product-info">
+       <h2>{{productDetails.title}}</h2>
+       <p>{{productDetails.category}}</p>
+     </div>
+   </div>
+    <div class="floating-footer_cta">
+      <div class="floating-footer_cta_qty">
+        <span>Qty:</span>
+       <div class="qty-input">
+         <span nz-icon nzType="minus-square" nzTheme="outline" (click)="decreaseQty()"></span>
+         <span class="qty-field">{{qty}}</span>
+         <span nz-icon nzType="plus-square" nzTheme="outline" (click)="increaseQty()"></span>
+       </div>
+      </div>
+      <button nz-button nzType="default" class="btn btn-default add-to-cart-btn" (click)="onAddingToCart()">Add To Cart</button>
+    </div>
+  </div>
+</div>

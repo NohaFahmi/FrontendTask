@@ -9,9 +9,10 @@ import {IFilter, IFilterOption} from "@interfaces/common.interface";
 })
 export class ProductsService {
    products: BehaviorSubject<IProduct[]> = new BehaviorSubject<IProduct[]>([]);
+   cartItems: BehaviorSubject<{productId: number; qty: number}[]> = new BehaviorSubject<{productId: number; qty: number}[]>([]);
+   cartItemsCount: BehaviorSubject<number> = new BehaviorSubject<number>(0);
    filteredProducts: IProduct[] = [];
-   selectedCategoriesFilters: IFilterOption[] = [];
-   selectedPricesFilters: IFilterOption[] = [];
+
   constructor(private customHttpService: CustomHttpService) { }
 
   getAllProducts(sender: string): Promise<IProductsResponse> {
@@ -127,5 +128,13 @@ export class ProductsService {
       }
       resolve(this.products.getValue());
     });
+  }
+  addProductToCart(productId: number, qty: number):void {
+    this.cartItems.next([...this.cartItems.getValue(), {productId, qty}]);
+    let cartItemsCount = 0;
+    this.cartItems.getValue().forEach((item) => {
+     cartItemsCount += item.qty;
+    });
+    this.cartItemsCount.next(cartItemsCount);
   }
 }
