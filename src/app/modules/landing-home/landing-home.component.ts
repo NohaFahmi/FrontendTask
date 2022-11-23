@@ -11,7 +11,7 @@ import {Subscription} from "rxjs";
   styleUrls: ['./landing-home.component.scss'],
   encapsulation: ViewEncapsulation.None
 })
-export class LandingHomeComponent implements OnInit {
+export class LandingHomeComponent implements OnInit, OnDestroy {
   products: IProduct[] = [];
   productsFilters: IFilter[] = [];
   selectedFilters: {[key: string]: IFilterOption[]} = {}
@@ -48,6 +48,8 @@ export class LandingHomeComponent implements OnInit {
   getSearchResults() {
     this.productsService.searchInProducts("landing-home", this.query).then((result) => {
       this.products = result.products;
+    }).finally(() => {
+      this.getProductsFilters();
     })
   }
   getAllProductsList() {
@@ -85,5 +87,11 @@ export class LandingHomeComponent implements OnInit {
 
   onNavigationToProductPage(id: number) {
     this.router.navigate(['/product/' + id]);
+  }
+
+  ngOnDestroy(): void {
+    this.subscriptions.map((sub) => {
+      sub.unsubscribe();
+    })
   }
 }

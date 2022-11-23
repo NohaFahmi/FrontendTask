@@ -1,6 +1,6 @@
 <div class="product-details-page_container" *ngIf="productDetails">
   <div class="product-details-page_container_img-side">
-      <img [src]="productDetails.images[0]" [alt]="productDetails.title">
+      <img [src]="selectedProductImage" [alt]="productDetails.title">
   </div>
   <div class="product-details-page_container_details-side">
     <span class="hot-sale-label">HOT SALE</span>
@@ -17,15 +17,20 @@
       <p>{{productDetails.description}}</p>
     </div>
     <div class="product-details-page_container_details-side_images">
-      <div class="product-img" *ngFor="let img of productDetails.images; let index = index;">
-        <img [src]="img" [alt]="productDetails.title">
+      <div *ngFor="let img of productDetails.images; let index = index;">
+        <div class="product-img" (click)="switchDisplayedImage(index)" [ngClass]="selectedProductImage == img ? 'selected' : ''">
+          <img [src]="img" [alt]="productDetails.title">
+        </div>
       </div>
+
     </div>
     <div class="product-details-page_container_details-side_sizes">
       <h6>Size</h6>
         <div class="product-details-page_container_details-side_sizes_size">
-          <span class="product-details-page_container_details-side_sizes_size-item"
-                *ngFor="let size of sizes; let index = index;">{{size}}</span>
+          <div *ngFor="let size of sizes; let index = index;">
+             <span class="product-details-page_container_details-side_sizes_size-item" [ngClass]="index == selectedSize ? 'selected' : ''" (click)="onSelectSize(index)">{{size}}</span>
+          </div>
+
         </div>
     </div>
     <div class="product-details-page_container_details-side_ingred">

@@ -19,6 +19,9 @@ export class ProductDetailsComponent implements OnInit {
   sizes: string[] = ['1.5 kg', '1 kg', '500 gr', '250 gr'];
   ingredients: string[] = ['Nutrisi', 'Vitamin', 'Protein']
   qty:number = 1;
+  selectedProductImage: string = '';
+  selectedSize: number = 0;
+
   ngOnInit(): void {
     let paramsSub = this.route.params.subscribe((params) => {
       let productId = params['id'];
@@ -26,6 +29,7 @@ export class ProductDetailsComponent implements OnInit {
         this.productId = productId;
         this.productService.getProductById('product-details',productId).then((product) => {
           this.productDetails = product;
+          this.selectedProductImage = product.images[0];
         })
       } else {
         this.router.navigate(['/home']);
@@ -53,5 +57,13 @@ export class ProductDetailsComponent implements OnInit {
     if(this.productId) {
       this.productService.addProductToCart(this.productId, this.qty);
     }
+  }
+
+  switchDisplayedImage(index: number) {
+    this.selectedProductImage = this.productDetails?.images[index] || '';
+  }
+
+  onSelectSize(index: number) {
+    this.selectedSize = index;
   }
 }
