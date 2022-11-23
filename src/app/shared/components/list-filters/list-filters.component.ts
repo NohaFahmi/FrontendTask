@@ -1,5 +1,5 @@
-import {Component, EventEmitter, Input, OnInit, Output, ViewEncapsulation} from '@angular/core';
-import {IFilter} from "@interfaces/common.interface";
+import {Component, EventEmitter, Input, OnInit, Output, SimpleChange, ViewEncapsulation} from '@angular/core';
+import {IFilter, IFilterOption} from "@interfaces/common.interface";
 
 @Component({
   selector: 'app-list-filters',
@@ -9,15 +9,21 @@ import {IFilter} from "@interfaces/common.interface";
 })
 export class ListFiltersComponent implements OnInit {
 
-  @Input() filtersList?: IFilter[] = [];
-  @Output() onFiltersSelection: EventEmitter<any> = new EventEmitter<any>();
+  @Input() filterItems: IFilter[] = [];
+  @Output() onFiltersSelection: EventEmitter<{[key: string]: IFilterOption[]}> = new EventEmitter<{[key: string]: IFilterOption[]}>();
+  selectedFilters: {[key: string]: IFilterOption[]} = {
+    'categories': [],
+    'prices': [],
+  };
 
   constructor() { }
 
   ngOnInit(): void {
   }
 
-  onSelectFilters(selectedFilters: any[], filterName: string) {
-    this.onFiltersSelection.emit(selectedFilters);
+  onSelectFilters(selectedValues: IFilterOption[], filterId: string) {
+    this.selectedFilters[filterId] = selectedValues;
+    this.onFiltersSelection.emit(this.selectedFilters);
   }
+
 }

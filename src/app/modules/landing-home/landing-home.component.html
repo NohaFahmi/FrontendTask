@@ -1,22 +1,36 @@
-<div class="landing-home_container" *ngIf="products.length > 0">
-  <div nz-row>
-    <div nz-col nzSpan="7" nzOffset="1">
+<div class="landing-home_container">
+  <button nz-button nzType="primary" (click)="onOpenDrawer()" class="filter-drawer_btn" *ngIf="productsFilters.length > 0">
+    <span nz-icon nzType="filter" nzTheme="outline"></span>
+  </button>
+  <nz-drawer
+    [nzClosable]="true"
+    [nzVisible]="isDrawerVisible"
+    [nzPlacement]="'left'"
+    [nzWidth]="300"
+    (nzOnClose)="onCloseDrawer()">
+    <ng-container *nzDrawerContent>
+        <app-list-filters [filterItems]="productsFilters" (onFiltersSelection)="onFilteringProducts($event)"></app-list-filters>
+    </ng-container>
+  </nz-drawer>
+    <div class="landing-home_container_col">
       <div class="landing-home_container__filters">
-        <app-list-filters></app-list-filters>
+        <app-list-filters [filterItems]="productsFilters" (onFiltersSelection)="onFilteringProducts($event)"></app-list-filters>
       </div>
     </div>
-    <div nz-col nzSpan="14" nzOffset="1">
+    <div class="landing-home_container_col">
       <div class="landing-home_container__products-list">
         <div class="landing-home_container__products-list-sort">
-          <app-list-sort></app-list-sort>
+          <app-list-sort [sortOptionsList]="sortItems" (onSortOptionsSelection)="onSortingProducts($event)"></app-list-sort>
         </div>
-        <div class="landing-home_container__products-list-wrapper">
+        <div class="landing-home_container__products-list-wrapper" *ngIf="products.length > 0">
           <div *ngFor="let product of products;">
             <app-product-card [product]="product"></app-product-card>
           </div>
+        </div>
+        <div class="landing-home_container__products-list-empty" *ngIf="products.length === 0">
+          <nz-empty></nz-empty>
         </div>
       </div>
     </div>
   </div>
 
-</div>

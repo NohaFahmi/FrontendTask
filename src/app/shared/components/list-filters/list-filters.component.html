@@ -1,13 +1,16 @@
-<div class="list-filters__container">
-  <div class="list-filters__container_filter-item" *ngFor="let filter of filtersList;">
+<div class="list-filters__container" *ngIf="filterItems.length > 0">
+  <div class="list-filters__container_filter-item" *ngFor="let filter of filterItems;">
     <nz-collapse [nzExpandIconPosition]="'right'" [nzBordered]="false">
       <nz-collapse-panel
-        [nzHeader]="filter.filterTitle"
+        [nzHeader]="filter.title"
         [nzActive]="true">
         <div class="list-filters__container_filters">
-          <nz-checkbox-wrapper (nzOnChange)="onSelectFilters($event, filter.filterTitle)">
-              <div *ngFor="let item of filter.filterItems;">
-                <label nz-checkbox [nzValue]="item.value">{{item.name}}</label>
+          <nz-checkbox-wrapper (nzOnChange)="onSelectFilters($event, filter.id)">
+              <div *ngFor="let value of filter.values;">
+                <label nz-checkbox [nzValue]="value" [nzChecked]="value.selected"
+                       (nzCheckedChange)="value.selected = !value.selected">
+                  {{filter.title === 'Prices' ? 'Price' + value.name : value.name}}
+                </label>
               </div>
           </nz-checkbox-wrapper>
         </div>

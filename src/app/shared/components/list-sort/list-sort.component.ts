@@ -9,7 +9,7 @@ import {FormControl} from "@angular/forms";
 })
 export class ListSortComponent implements OnInit {
   sortOptions: FormControl;
-  @Input() sortOptionsList: any[] = [];
+  @Input() sortOptionsList:{id: string, name: string}[] = [];
   @Output() onSortOptionsSelection: EventEmitter<any> = new EventEmitter<any>();
 
   constructor() {
@@ -20,7 +20,7 @@ export class ListSortComponent implements OnInit {
   }
 
 
-  onSelectOptions(option: any) {
+  onSelectOptions(option: {id: string, name: string}) {
     this.onSortOptionsSelection.emit(option);
   }
 }

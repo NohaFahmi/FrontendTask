@@ -1,8 +1,12 @@
+
 export interface IFilter {
-  filterTitle: string;
-  filterItems: IFilterItem[];
+  id: string;
+  title: string;
+  values: IFilterOption[];
 }
-export interface IFilterItem {
+
+export interface IFilterOption {
+  id: number;
   name: string;
-  value: string;
+  selected: boolean;
 }
