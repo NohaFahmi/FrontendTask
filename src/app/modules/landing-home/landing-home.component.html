@@ -1,5 +1,7 @@
 <div class="landing-home_container">
-  <button nz-button nzType="primary" (click)="onOpenDrawer()" class="filter-drawer_btn" *ngIf="productsFilters.length > 0">
+
+  <button nz-button nzType="primary" (click)="onOpenDrawer()"
+          class="filter-drawer_btn btn btn-outline" *ngIf="productsFilters.length > 0">
     <span nz-icon nzType="filter" nzTheme="outline"></span>
   </button>
   <nz-drawer
@@ -23,7 +25,7 @@
           <app-list-sort [sortOptionsList]="sortItems" (onSortOptionsSelection)="onSortingProducts($event)"></app-list-sort>
         </div>
         <div class="landing-home_container__products-list-wrapper" *ngIf="products.length > 0">
-          <div *ngFor="let product of products;">
+          <div *ngFor="let product of products;" (click)="onNavigationToProductPage(product.id)">
             <app-product-card [product]="product"></app-product-card>
           </div>
         </div>

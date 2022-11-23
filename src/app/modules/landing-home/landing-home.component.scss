@@ -60,6 +60,8 @@
       width: 90% !important;
     }
     .filter-drawer_btn {
+      background-color: transparent;
+      width: 100px;
       @media(min-width: 769px) {
         display: none;
       }

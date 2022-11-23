@@ -4,6 +4,7 @@ import { HeaderComponent } from './components/header/header.component';
 import {NzInputModule} from "ng-zorro-antd/input";
 import {NzIconModule} from "ng-zorro-antd/icon";
 import {NzButtonModule} from "ng-zorro-antd/button";
+import {ReactiveFormsModule} from "@angular/forms";
 
 
 
@@ -14,11 +15,12 @@ import {NzButtonModule} from "ng-zorro-antd/button";
     exports: [
         HeaderComponent
     ],
-  imports: [
-    CommonModule,
-    NzInputModule,
-    NzIconModule,
-    NzButtonModule
-  ]
+    imports: [
+        CommonModule,
+        NzInputModule,
+        NzIconModule,
+        NzButtonModule,
+        ReactiveFormsModule
+    ]
 })
 export class CoreModule { }

@@ -11,6 +11,11 @@ const routes: Routes = [
     loadChildren: () => import('@modules/landing-home/landing-home.module').then(m => m.LandingHomeModule)
   },
   {
+    path: 'search',
+    pathMatch: 'full',
+    loadChildren: () => import('@modules/landing-home/landing-home.module').then(m => m.LandingHomeModule)
+  },
+  {
     path: 'login',
     pathMatch: 'full',
     loadChildren: () => import('@modules/login/login.module').then(m => m.LoginModule)

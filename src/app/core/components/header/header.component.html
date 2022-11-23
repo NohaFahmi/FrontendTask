@@ -8,11 +8,12 @@
   </div>
   <div class="header-container__header-search_wrapper">
    <div class="header-search-field">
-     <nz-input-group nzPrefixIcon="search" [nzSuffix]="searchClearTip" class="search-input">
-       <input type="text" nz-input placeholder="input search text" />
+     <nz-input-group nzPrefixIcon="search" [nzSuffix]="searchKeyword.value ? searchClearTip: ''"
+                     class="search-input">
+       <input type="text" nz-input placeholder="input search text" [formControl]="searchKeyword" (ngModelChange)="onSearching()"/>
      </nz-input-group>
      <ng-template #searchClearTip>
-       <span nz-icon nzType="close" nzTheme="outline"></span>
+       <span nz-icon nzType="close" nzTheme="outline" (click)="resetSearchKeyWord()"></span>
      </ng-template>
    </div>
     <a class="header-container__header-link">Electronics</a>
