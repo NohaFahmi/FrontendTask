@@ -9,7 +9,7 @@ import {CustomHttpService} from "@services/custom-http/custom-http.service";
   providedIn: 'root'
 })
 export class AuthService {
-
+  userInfo: BehaviorSubject<unknown> = new BehaviorSubject<any>(null);
   constructor(private authFirebase: AngularFireAuth, private router: Router, private customHttpService: CustomHttpService) {}
 
   emailSignup(userEmail: string, userPassword: string): Promise<any> {
@@ -40,11 +40,12 @@ export class AuthService {
     return new Observable((observer) => {
       this.authFirebase.onAuthStateChanged(user => {
         observer.next(user?.refreshToken);
-        if (user) {
-          console.log("USER", user.refreshToken);
-        } else {
-          console.log("USER", 'sign out');
-        }
+        this.userInfo.next(user);
+        // if (user) {
+        //   console.log("USER", user.refreshToken);
+        // } else {
+        //   console.log("USER", 'sign out');
+        // }
       })
     })
   }

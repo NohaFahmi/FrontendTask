@@ -14,6 +14,7 @@ import {Subscription} from "rxjs";
 export class HeaderComponent implements OnInit, OnDestroy {
   searchKeyword: FormControl;
   cartItemsCount: number = 0;
+  userInfo: unknown | null = {};
   subscriptions: Subscription[] = [];
 
   constructor(private authService:AuthService, private router:Router, private productService:ProductsService) {
@@ -24,11 +25,16 @@ export class HeaderComponent implements OnInit, OnDestroy {
     let cartCountSub = this.productService.cartItemsCount.subscribe((count) => {
       this.cartItemsCount = count;
     });
+    let userInfoSub = this.authService.userInfo.subscribe((userInfo) => {
+      this.userInfo = userInfo;
+    });
     this.subscriptions.push(cartCountSub);
+    this.subscriptions.push(userInfoSub);
   }
 
   onLogout() {
     this.authService.logoutUser().then((res) => {
+      this.router.navigate(['/login']);
     } ).catch((err) => { })
   }
 

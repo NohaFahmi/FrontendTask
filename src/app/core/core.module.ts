@@ -5,6 +5,7 @@ import {NzInputModule} from "ng-zorro-antd/input";
 import {NzIconModule} from "ng-zorro-antd/icon";
 import {NzButtonModule} from "ng-zorro-antd/button";
 import {ReactiveFormsModule} from "@angular/forms";
+import {RouterModule} from "@angular/router";
 
 
 
@@ -20,7 +21,8 @@ import {ReactiveFormsModule} from "@angular/forms";
         NzInputModule,
         NzIconModule,
         NzButtonModule,
-        ReactiveFormsModule
+        ReactiveFormsModule,
+        RouterModule
     ]
 })
 export class CoreModule { }

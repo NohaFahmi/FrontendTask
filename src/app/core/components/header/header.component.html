@@ -4,7 +4,7 @@
       <img src="assets/images/Logo.svg" alt="header-logo"/>
     </div>
     <a class="header-container__header-links_link-item">Sell on Shopka</a>
-    <a class="header-container__header-links_link-item">Register</a>
+    <a class="header-container__header-links_link-item" *ngIf="!userInfo">Register</a>
   </div>
   <div class="header-container__header-search_wrapper">
    <div class="header-search-field">
@@ -19,12 +19,12 @@
     <a class="header-container__header-link">Electronics</a>
   </div>
   <div class="header-container__header-user-cta">
-    <a class="header-container__header-user-cta_login-btn btn-outline btn" nz-button nzType="default">Login</a>
+    <a class="header-container__header-user-cta_login-btn btn-outline btn" nz-button nzType="default" *ngIf="!userInfo" [routerLink]="'login'">Login</a>
     <span class="header-container__header-user-cta_user-cart">
       <span class="cart-count">{{cartItemsCount}}</span>
     <button nz-button nzType="default" class="cart-btn btn btn-outline">My Cart</button>
     </span>
-    <div class="header-container__header-user-cta_user-avatar" (click)="onLogout()">
+    <div class="header-container__header-user-cta_user-avatar" (click)="onLogout()" *ngIf="userInfo">
       <img src="assets/images/user-avatar.jpg" alt="user-avatar"/>
     </div>
   </div>
