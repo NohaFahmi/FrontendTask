@@ -18,7 +18,6 @@ export class ProductDetailsComponent implements OnInit, OnDestroy {
   productDetails?: IProduct;
   sizes: string[] = ['1.5 kg', '1 kg', '500 gr', '250 gr'];
   ingredients: string[] = ['Nutrisi', 'Vitamin', 'Protein']
-  qty:number = 1;
   selectedProductImage: string = '';
   selectedSize: number = 0;
 
@@ -43,19 +42,9 @@ export class ProductDetailsComponent implements OnInit, OnDestroy {
     this.router.navigate(['/home']);
   }
 
-  decreaseQty() {
-    if(this.qty > 1) {
-      this.qty -= 1;
-    }
-  }
-
-  increaseQty() {
-    this.qty += 1;
-  }
-
-  onAddingToCart() {
+  onAddingToCart(qty: number) {
     if(this.productId) {
-      this.productService.addProductToCart(this.productId, this.qty);
+      this.productService.addProductToCart(this.productId, qty);
     }
   }
 

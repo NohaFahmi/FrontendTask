@@ -1,0 +1,22 @@
+<div class="product-details-page_container_floating-footer" *ngIf="productDetails">
+  <div class="floating-footer_info">
+    <div class="product-img">
+      <img [src]="productDetails.images[0]" [alt]="productDetails.title">
+    </div>
+    <div class="product-info">
+      <h2>{{productDetails.title}}</h2>
+      <p>{{productDetails.category}}</p>
+    </div>
+  </div>
+  <div class="floating-footer_cta">
+    <div class="floating-footer_cta_qty">
+      <span>Qty:</span>
+      <div class="qty-input">
+        <span nz-icon nzType="minus-square" nzTheme="outline" (click)="decreaseQty()"></span>
+        <span class="qty-field">{{qty}}</span>
+        <span nz-icon nzType="plus-square" nzTheme="outline" (click)="increaseQty()"></span>
+      </div>
+    </div>
+    <button nz-button nzType="default" class="btn btn-default add-to-cart-btn" (click)="addToCart()">Add To Cart</button>
+  </div>
+</div>
