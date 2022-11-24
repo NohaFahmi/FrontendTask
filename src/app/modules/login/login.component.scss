@@ -33,6 +33,12 @@
     width: 100%;
     max-width: 80%;
     text-align: center;
+    .form-hints {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      color: var(--red-600)
+    }
     @media(max-width: 768px) {
       max-width: 90%;
     }

@@ -1,16 +1,19 @@
 <div class="login-page__container">
-  <div class="login-page__container_img-wrapper">
-<!--    <img src="assets/images/login-bg.svg" alt="login">-->
-  </div>
+  <div class="login-page__container_img-wrapper"></div>
   <div class="login-page__container_content-wrapper">
     <div class="logo-wrapper">
       <img src="assets/images/logo.png" alt="logo"/>
     </div>
     <div class="login-page__container_login-form">
      <form nz-form [nzLayout]="'vertical'" [formGroup]="loginForm">
+      <div class="form-hints">
+        <p> User Email: test-user@gmail.com</p>
+        <p> Password: @Test123</p>
+      </div>
+
        <nz-form-item class="login-form-email-item">
          <nz-form-label>Email</nz-form-label>
-         <nz-form-control nzErrorTip="Please input your email!">
+         <nz-form-control nzErrorTip="test-user@gmail.com">
            <nz-input-group>
              <input type="text" nz-input placeholder="Email" formControlName="email"/>
            </nz-input-group>
