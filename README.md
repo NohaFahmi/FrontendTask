@@ -28,7 +28,7 @@ The is to create a simple ecommerce website with the following:
 
 ### Links
 - The API that used in this project to get products data: [DummyJson API](https://dummyjson.com/)
-- The link to the live demo: [EcommerceTask](https://ecommercetask.netlify.app/)
+- The link to the live demo: [EcommerceTask](https://frontend-task-ecommerce.vercel.app/)
 - 
 ## My process
 
@@ -37,6 +37,7 @@ The is to create a simple ecommerce website with the following:
 - Added the ng-zorro-antd library for the UI components.
 - Created the login page and integrated with [firebase authentication](https://firebase.google.com/docs/auth) to provide the login functionality.
 - Created the header component and added the login/logout buttons, the cart button and the search input.
+- Added the functionality of log out: user Can log out from the header component by clicking on the user avatar.
 - Created the landing page and integrated with the [DummyJson API](https://dummyjson.com/)  to get the products' data.
 - Implemented the token interceptor to add the token to the request header.
 - Created the filtering and sorting functionality.
