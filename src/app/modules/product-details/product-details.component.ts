@@ -1,4 +1,4 @@
-import {Component, OnInit, ViewEncapsulation} from '@angular/core';
+import {Component, OnDestroy, OnInit, ViewEncapsulation} from '@angular/core';
 import {ActivatedRoute, Router} from "@angular/router";
 import {Subscription} from "rxjs";
 import {ProductsService} from "@services/integrations/products/products.service";
@@ -10,7 +10,7 @@ import {IProduct} from "@interfaces/product.interface";
   styleUrls: ['./product-details.component.scss'],
   encapsulation: ViewEncapsulation.None
 })
-export class ProductDetailsComponent implements OnInit {
+export class ProductDetailsComponent implements OnInit, OnDestroy {
   subscriptions: Subscription[] = [];
 
   constructor(private route: ActivatedRoute, private router: Router, private productService: ProductsService) { }
@@ -65,5 +65,11 @@ export class ProductDetailsComponent implements OnInit {
 
   onSelectSize(index: number) {
     this.selectedSize = index;
+  }
+
+  ngOnDestroy(): void {
+    this.subscriptions.map((sub) => {
+      sub.unsubscribe();
+    })
   }
 }
