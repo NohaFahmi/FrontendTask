@@ -8,6 +8,7 @@ this is a frontend task for interview process.
     - [The task](#the-task)
     - [Requirements](#requirements)
     - [Links](#links)
+    - [How to Run the project](#how-to-run-the-project)
   - [My process](#my-process)
     - [File Structure](#file-structure)
     - [Notes](#notes)
@@ -29,7 +30,12 @@ The is to create a simple ecommerce website with the following:
 ### Links
 - The API that used in this project to get products data: [DummyJson API](https://dummyjson.com/)
 - The link to the live demo: [EcommerceTask](https://frontend-task-ecommerce.vercel.app/)
-- 
+
+### How to Run the project
+- Clone the project
+- Run `npm install` to install all dependencies
+- Run `npm run start` to run the project
+
 ## My process
 
 - started by reviewing the designs attached with the task.
